@@ -6,5 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'oc-angularjsTutorial';
+
+  posts = [
+    {
+      title: 'Mon premier post',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
+        '    sed do eiusmod tempor incididunt ut labore\n' +
+        '    et dolore magna aliqua. Ut enim ad minim veniam, quis'
+    },
+    {
+      title: 'Mon deuxième post',
+      content: 'et dolore magna aliqua. Ut enim ad minim veniam, quis'
+    },
+    {
+      title: 'Encore un post',
+      content: 'Contenu du post blablabla'
+    }
+  ];
+
+  constructor() {}
 }
+
