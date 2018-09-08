@@ -1,34 +1,23 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {interval, Subscription} from 'rxjs';
-
+import {Component} from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
+  title = 'oc-angularjsTutorial';
 
-  secondes: number;
-  counterSubscription: Subscription;
-
-  ngOnInit() {
-    const counter = interval(1000);
-    this.counterSubscription = counter.subscribe(
-      (value) => {
-        this.secondes = value;
-      },
-      (error) => {
-        console.log('Uh-oh, an error occured! ' + error);
-      },
-      () => {
-        console.log('Observable complete!');
-      }
-    );
-  }
-
-  ngOnDestroy() {
-    this.counterSubscription.unsubscribe();
+  constructor() {
+    const config = {
+      apiKey: 'AIzaSyAg8NCtGzWZAIzTu39znZZUYn-82Ir5ehM',
+      authDomain: 'application-angular-firebase.firebaseapp.com',
+      databaseURL: 'https://application-angular-firebase.firebaseio.com',
+      projectId: 'application-angular-firebase',
+      storageBucket: '',
+      messagingSenderId: '911560564969'
+    };
+    firebase.initializeApp(config);
   }
 }
-
