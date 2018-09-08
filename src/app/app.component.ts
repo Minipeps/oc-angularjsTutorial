@@ -1,29 +1,34 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {interval, Subscription} from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
 
-  posts = [
-    {
-      title: 'Mon premier post',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n' +
-        '    sed do eiusmod tempor incididunt ut labore\n' +
-        '    et dolore magna aliqua. Ut enim ad minim veniam, quis'
-    },
-    {
-      title: 'Mon deuxième post',
-      content: 'et dolore magna aliqua. Ut enim ad minim veniam, quis'
-    },
-    {
-      title: 'Encore un post',
-      content: 'Contenu du post blablabla'
-    }
-  ];
+  secondes: number;
+  counterSubscription: Subscription;
 
-  constructor() {}
+  ngOnInit() {
+    const counter = interval(1000);
+    this.counterSubscription = counter.subscribe(
+      (value) => {
+        this.secondes = value;
+      },
+      (error) => {
+        console.log('Uh-oh, an error occured! ' + error);
+      },
+      () => {
+        console.log('Observable complete!');
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.counterSubscription.unsubscribe();
+  }
 }
 
