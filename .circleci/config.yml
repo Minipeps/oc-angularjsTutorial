@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
     # specify the version you desire here
-    - image: circleci/node:8.11.4
+    - image: circleci/node:8-browsers
 
     working_directory: ~/oc-angularjsTutorial
 
@@ -29,4 +29,5 @@ jobs:
         key: v1-dependencies-{{ checksum "package.json" }}
 
     # run tests!
-    - run: npm test
+    - run: npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
+    #- run: npm run  -- --protractor-config=./e2e/protractor-ci.conf.js
