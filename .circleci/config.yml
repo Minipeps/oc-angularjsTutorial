@@ -4,10 +4,10 @@
 #
 version: 2
 jobs:
-
-  working_directory: ~/oc-angularjsTutorial
-
   build:
+
+    working_directory: ~/oc-angularjsTutorial
+
     docker:
     # specify the version you desire here
     - image: circleci/node:8-browsers
