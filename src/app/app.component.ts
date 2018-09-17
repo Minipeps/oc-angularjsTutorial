@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import * as configFile from 'firebase-config.json';
 import * as firebase from 'firebase';
 
 @Component({
@@ -11,13 +12,15 @@ export class AppComponent {
 
   constructor() {
     const config = {
-      apiKey: 'AIzaSyAg8NCtGzWZAIzTu39znZZUYn-82Ir5ehM',
-      authDomain: 'application-angular-firebase.firebaseapp.com',
-      databaseURL: 'https://application-angular-firebase.firebaseio.com',
-      projectId: 'application-angular-firebase',
-      storageBucket: '',
-      messagingSenderId: '911560564969'
+      apiKey: (<any>configFile).apiKey,
+      authDomain: (<any>configFile).authDomain,
+      databaseURL: (<any>configFile).databaseURL,
+      projectId: (<any>configFile).projectId,
+      storageBucket: (<any>configFile).storageBucket,
+      messagingSenderId: (<any>configFile).messagingSenderId
     };
-    firebase.initializeApp(config);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
   }
 }
