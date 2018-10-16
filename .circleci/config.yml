@@ -8,7 +8,7 @@ jobs:
     environment:
       - CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
 
-    working_directory: ~/repo
+    working_directory: ~/oc-angularjsTutorial
 
     docker:
       # specify the version you desire here
