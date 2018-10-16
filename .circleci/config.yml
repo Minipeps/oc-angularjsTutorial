@@ -37,6 +37,7 @@ jobs:
       - run:
           name: Run unit tests
           command: |
+            ./cc-test-reporter before-build
             xvfb-run -a npm run test -- --watch=false --progress=false --browsers=ChromeNoSandbox
-              ./cc-test-reporter format-coverage -t lcov -o codec
+            ./cc-test-reporter after-build --debug --coverage-input-type simplecov --exit-code $?
       #- run: xvfb-run -a npm run e2e -- --config=protractor-ci.conf.js
