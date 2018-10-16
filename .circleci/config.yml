@@ -35,8 +35,8 @@ jobs:
           - "node_modules"
 
       - run:
-        name: Run unit tests
-        command: |
-          xvfb-run -a npm run test -- --watch=false --progress=false --browsers=ChromeNoSandbox
-            ./cc-test-reporter format-coverage -t lcov -o codec
+          name: Run unit tests
+          command: |
+            xvfb-run -a npm run test -- --watch=false --progress=false --browsers=ChromeNoSandbox
+              ./cc-test-reporter format-coverage -t lcov -o codec
       #- run: xvfb-run -a npm run e2e -- --config=protractor-ci.conf.js
