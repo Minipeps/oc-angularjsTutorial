@@ -5,9 +5,6 @@
 version: 2
 jobs:
   build:
-    # environment:
-    #  - CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
-
     working_directory: ~/oc-angularjsTutorial
 
     branch:
@@ -50,4 +47,4 @@ jobs:
           name: Deploy to GitHub Pages
           command: |
             npm run-script deploy
-            npx ngh --dir=dist/oc-angularjsTutorial
+            npx ngh --dir=dist/oc-angularjsTutorial --no-silent

@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
   }
 
   drawLineInteraction() {
-    var draw = new Draw({
+    const draw = new Draw({
       source: new VectorSource({wrapX: false}),
       type: 'LineString'
     });
