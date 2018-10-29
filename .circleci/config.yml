@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/oc-angularjsTutorial
 
-    branch:
+    branches:
       ignore:
         - gh-pages
 
@@ -47,4 +47,4 @@ jobs:
           name: Deploy to GitHub Pages
           command: |
             npm run-script deploy
-            npx ngh --dir=dist/oc-angularjsTutorial --name="DeployBot" --email=autodeploy@minipeps.com --no-silent
+            npx ngh --repo=https://GH_TOKEN@github.com/Minipeps/oc-angularjsTutorial.git --dir=dist/oc-angularjsTutorial --name="DeployBot" --email=autodeploy@minipeps.com --no-silent
