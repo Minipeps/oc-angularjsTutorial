@@ -50,4 +50,4 @@ jobs:
           name: Deploy to GitHub Pages
           command: |
             npm run-script deploy
-            ngx ngh --dir=dist/oc-angularjsTutorial
+            npx ngh --dir=dist/oc-angularjsTutorial
