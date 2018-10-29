@@ -47,4 +47,4 @@ jobs:
           name: Deploy to GitHub Pages
           command: |
             npm run-script deploy
-            npx ngh --dir=dist/oc-angularjsTutorial --no-silent
+            npx ngh --dir=dist/oc-angularjsTutorial --name="DeployBot" --email=autodeploy@minipeps.com --no-silent
