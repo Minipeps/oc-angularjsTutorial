@@ -10,6 +10,10 @@ jobs:
 
     working_directory: ~/oc-angularjsTutorial
 
+    branch:
+      ignore:
+        - gh-pages
+
     docker:
       # specify the version you desire here
       - image: circleci/node:8-browsers
@@ -20,7 +24,7 @@ jobs:
       - run:
           name: Installing angular-cli
           command: |
-            npm install angular-cli
+            npm install angular/cli
             npm install angular-cli-ghpages
 
       - run:
