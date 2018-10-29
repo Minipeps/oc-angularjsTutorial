@@ -49,5 +49,5 @@ jobs:
       - run:
           name: Deploy to GitHub Pages
           command: |
-            ng build --prod --aot --build-optimizer
+            npm run-script deploy
             ngx ngh --dir=dist/oc-angularjsTutorial
