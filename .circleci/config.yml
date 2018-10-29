@@ -18,6 +18,12 @@ jobs:
       - checkout
 
       - run:
+        name: Installing angular-cli
+          command: |
+            npm install angular-cli
+            npm install angular-cli-ghpages
+
+      - run:
           name: Download cc-test-reporter
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -41,3 +47,9 @@ jobs:
             xvfb-run -a npm run test -- --code-coverage --watch=false --progress=false --browsers=ChromeNoSandbox
             ./cc-test-reporter after-build --debug --coverage-input-type lcov --exit-code $?
       #- run: xvfb-run -a npm run e2e -- --config=protractor-ci.conf.js
+
+      - run:
+          name: Deploy to GitHub Pages
+          command: |
+            ng build --prod --aot --build-optimizer
+            ngx ngh --dir=dist/oc-angularjsTutorial
