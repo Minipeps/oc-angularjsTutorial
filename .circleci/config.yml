@@ -22,12 +22,6 @@ jobs:
       - checkout
 
       - run:
-          name: Installing angular-cli
-          command: |
-            npm install angular/cli
-            npm install angular-cli-ghpages
-
-      - run:
           name: Download cc-test-reporter
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
