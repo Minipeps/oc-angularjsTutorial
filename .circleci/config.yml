@@ -47,4 +47,4 @@ jobs:
           name: Deploy to GitHub Pages (over SSH)
           command: |
             npm run deploy
-            npx ngh --dir=dist/oc-angularjsTutorial --name="Minipeps" --email=maximep@stud.ntnu.no
+            npx ngh --no-silent --dir=dist/oc-angularjsTutorial --name="Minipeps" --email=maximep@stud.ntnu.no
