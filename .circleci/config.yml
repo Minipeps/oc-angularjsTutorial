@@ -18,6 +18,10 @@ jobs:
     steps:
       - checkout
 
+      - add_ssh_keys:
+          fingerprints:
+            - "e5:88:df:70:78:9c:51:a0:ed:95:be:3b:07:a3:51:9f"
+
       - run:
           name: Download cc-test-reporter
           command: |
@@ -44,7 +48,7 @@ jobs:
       #- run: xvfb-run -a npm run e2e -- --config=protractor-ci.conf.js
 
       - run:
-          name: Deploy to GitHub Pages
+          name: Deploy to GitHub Pages (over SSH)
           command: |
             npm run deploy
             npx ngh --repo=https://GH_TOKEN@github.com/Minipeps/oc-angularjsTutorial.git --dir=dist/oc-angularjsTutorial --name="Minipeps" --email=maximep@stud.ntnu.no
